@@ -1,0 +1,22 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Oran Shuster
+	email = oranshuster@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/oran.shuster/.gitignore_global
+        editor = nano
+	autocrlf = input
+[pager]
+	branch = false
+[pull]
+        ff = only
+
+[includeIf "gitdir:~/Oran/"]
+	path = ~/Oran/.gitconfig
+[includeIf "gitdir:homebrew-cask/"]
+        path = ~/Oran/.gitconfig
