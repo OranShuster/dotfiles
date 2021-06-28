@@ -12,15 +12,15 @@ fi
 
 source /Users/oranshuster/.config/broot/launcher/bash/br
 
-if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then 
-  . "/usr/local/opt/nvm/nvm.sh"
-else
-  echo -e "${RED}!!!nvm not installed!!!${NOCOLOR}"
-fi
-
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
 else
   echo -e "${RED}!!!pyenv not installed!!!${NOCOLOR}"
+fi
+
+if [ -s "/usr/local/opt/asdf/asdf.sh" ]; then 
+  . "/usr/local/opt/asdf/asdf.sh"
+else
+  echo -e "${RED}!!!asdf not installed!!!${NOCOLOR}"
 fi
