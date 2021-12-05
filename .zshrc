@@ -5,6 +5,7 @@ RED="\033[1;31m"
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 setopt hist_ignore_all_dups
+setopt APPEND_HISTORY
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 
