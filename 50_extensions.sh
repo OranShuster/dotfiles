@@ -16,8 +16,6 @@ else
   echo -e "${RED}!!!broot not installed!!!${NOCOLOR}"
 fi
 
-source /Users/oranshuster/.config/broot/launcher/bash/br
-
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
   eval "$(pyenv virtualenv-init -)"
@@ -27,6 +25,14 @@ fi
 
 if [ -s "/usr/local/opt/asdf/libexec/asdf.sh" ]; then 
   . /usr/local/opt/asdf/libexec/asdf.sh
+  . ~/.asdf/plugins/java/set-java-home.zsh
 else
   echo -e "${RED}!!!asdf not installed!!!${NOCOLOR}"
+fi
+
+
+if command -v zoxide 1>/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+else
+  echo -e "${RED}!!!zoxide not installed!!!${NOCOLOR}"
 fi

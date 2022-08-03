@@ -1,4 +1,5 @@
 #!/bin/zsh
+# set -x
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 RED="\033[1;31m"
 

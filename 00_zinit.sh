@@ -20,25 +20,25 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-
-autoload -U +X compinit && compinit
-
-zinit light "romkatv/powerlevel10k"
-zinit light "zsh-users/zsh-autosuggestions"
-zinit light "MichaelAquilina/zsh-you-should-use"
-
+zinit snippet OMZP::git
 zinit snippet OMZP::brew
 zinit snippet OMZP::colorize
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::git
 zinit snippet OMZP::github
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::python
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light "MichaelAquilina/zsh-you-should-use"
+zinit light "zsh-users/zsh-autosuggestions"
+autoload -U +X bashcompinit && bashcompinit
+zinit light "macunha1/zsh-terraform"
 #Temp fix till asdf plugin fixes its env
 #zinit snippet OMZP::asdf
 
 zinit ice svn
 zinit snippet OMZ::plugins/macos
 zinit ice svn
-zinit snippet OMZ::plugins/z
-zinit ice svn
+
+autoload -U +X compinit && compinit
+zinit cdreplay -q
