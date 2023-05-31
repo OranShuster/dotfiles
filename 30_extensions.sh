@@ -36,3 +36,6 @@ if command -v zoxide 1>/dev/null 2>&1; then
 else
   echo -e "${RED}!!!zoxide not installed!!!${NOCOLOR}"
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform

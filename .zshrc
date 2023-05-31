@@ -1,5 +1,6 @@
 #!/bin/zsh
 # set -x
+#zmodload zsh/zprof
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 RED="\033[1;31m"
 
@@ -31,3 +32,5 @@ for i in $HOME/dotfiles/*.sh(.); do
 		source "$i"
 	fi
 done; unset i
+
+#zprof
