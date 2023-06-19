@@ -1,0 +1,42 @@
+# Install scoop
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+
+# Install winget
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+
+# Add scoop buckets
+scoop bucket add nerd-fonts
+
+# Install apps through scoop
+scoop install sudo
+scoop install cheat-engine
+scoop install Hack-NF
+scoop install vcredist-aio
+
+# Install apps through winget
+winget install CoreyButler.NVMforWindows
+winget install KCSoftwares.SUMo
+winget install Microsoft.WindowsTerminal
+winget install Microsoft.PowerShell
+winget install Mozilla.Firefox
+winget install Plex.Plex
+winget install Stardock.Fences
+winget install Valve.Steam
+winget install TeamViewer.TeamViewer
+winget install JetBrains.Toolbox
+winget install RARLab.WinRAR
+winget install Zoom.Zoom
+winget install Twilio.Authy
+winget install NovaTechnology.Beeper
+winget install qBittorrent.qBittorrent
+winget install DownloadHelper.VdhCoApp
+winget install Appest.TickTick
+winget install EpicGames.EpicGamesLauncher
+winget install Mailbird.Mailbird
+winget install Google.Drive
+winget install GOG.Galaxy
+winget install SomePythonThings.WingetUIStore
+winget install Google.Chrome
+winget install VirtualDesktop.Streamer
+winget install Microsoft.PowerToys
