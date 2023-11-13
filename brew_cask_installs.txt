@@ -2,3 +2,5 @@ iterm2
 slack
 google-chrome
 visual-studio-code
+whatsapp
+telegram
