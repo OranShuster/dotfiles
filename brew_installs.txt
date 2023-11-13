@@ -1,0 +1,8 @@
+fzf
+thefuck
+broot
+pyenv
+asdf
+zoxide
+font-hack-nerd-font
+eza

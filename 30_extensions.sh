@@ -10,8 +10,8 @@ else
   echo -e "${RED}!!!thefuck not installed!!!${NOCOLOR}"
 fi
 
-if [ -s "/Users/oranshuster/.config/broot/launcher/bash/br" ]; then 
-  source /Users/oranshuster/.config/broot/launcher/bash/br
+if [ -s "$HOME/.config/broot/launcher/bash/br" ]; then 
+  source $HOME/.config/broot/launcher/bash/br
 else
   echo -e "${RED}!!!broot not installed!!!${NOCOLOR}"
 fi
@@ -23,8 +23,8 @@ else
   echo -e "${RED}!!!pyenv not installed!!!${NOCOLOR}"
 fi
 
-if [ -s "/usr/local/opt/asdf/libexec/asdf.sh" ]; then 
-  . /usr/local/opt/asdf/libexec/asdf.sh
+if [ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then 
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
   . ~/.asdf/plugins/java/set-java-home.zsh
 else
   echo -e "${RED}!!!asdf not installed!!!${NOCOLOR}"

@@ -6,7 +6,7 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bo
 alias gslack="git --no-pager log --pretty=format:'> %s%Creset' --abbrev-commit -n 15 | sed 's/\[src\]/*\[src\]*/g' | sed 's/\[fix\]/*\[fix\]*/g' | sed '/[vV]ersion/q'"
 alias kns="kubectl config set-context --current --namespace"
 
-alias ls='exa'
+alias ls='eza'
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"

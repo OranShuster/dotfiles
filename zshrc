@@ -21,7 +21,7 @@ else
   export EDITOR='nano'
 fi
 
-for i in $HOME/dotfiles/*.sh(.); do
+for i in $HOME/dotfiles/[0-9]*.sh; do
 	if [[ $__shell_bench -eq 1 ]]; then
     start_ns=$(gdate +%s%N)
     source "$i"
@@ -34,3 +34,4 @@ for i in $HOME/dotfiles/*.sh(.); do
 done; unset i
 
 #zprof
+source /Users/orans/.config/broot/launcher/bash/br
