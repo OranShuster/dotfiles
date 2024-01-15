@@ -1,0 +1,4 @@
+export DOTFILES_ENABLE_GO=true
+export DOTFILES_ENABLE_PYTHON=true
+export DOTFILES_ENABLE_JS=true
+export DOTFILES_ENABLE_TF=true

@@ -10,17 +10,15 @@ else
   echo -e "${RED}!!!thefuck not installed!!!${NOCOLOR}"
 fi
 
-if [ -s "$HOME/.config/broot/launcher/bash/br" ]; then 
-  source $HOME/.config/broot/launcher/bash/br
-else
-  echo -e "${RED}!!!broot not installed!!!${NOCOLOR}"
-fi
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv virtualenv-init -)"
-else
-  echo -e "${RED}!!!pyenv not installed!!!${NOCOLOR}"
+if [ -n "${DOTFILES_ENABLE_PYTHON}" ]; then
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+    eval "$(pyenv virtualenv-init -)"
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+  else
+    echo -e "${RED}!!!pyenv not installed!!!${NOCOLOR}"
+  fi
 fi
 
 if [ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then 
@@ -30,12 +28,35 @@ else
   echo -e "${RED}!!!asdf not installed!!!${NOCOLOR}"
 fi
 
-
 if command -v zoxide 1>/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 else
   echo -e "${RED}!!!zoxide not installed!!!${NOCOLOR}"
 fi
 
+if [ -n "${DOTFILES_ENABLE_JS}" ]; then
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    export NVM_DIR="$HOME/.nvm"
+  else
+    echo -e "${RED}!!!nvm not installed!!!${NOCOLOR}"
+  fi
+fi
+
+if [ -n "${DOTFILES_ENABLE_GO}" ]; then
+  if command -v goenv 1>/dev/null 2>&1; then
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    eval "$(goenv init -)"
+    export PATH="$GOROOT/bin:$PATH"
+    export PATH="$PATH:$GOPATH/bin"
+  else
+    echo -e "${RED}!!!goenv not installed!!!${NOCOLOR}"
+  fi
+fi
+
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+if [ -n "${DOTFILES_ENABLE_TF}" ]; then
+  complete -o nospace -C /usr/local/bin/terraform terraform
+fi
+
