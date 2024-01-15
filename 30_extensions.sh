@@ -35,9 +35,9 @@ else
 fi
 
 if [ -n "${DOTFILES_ENABLE_JS}" ]; then
+  export NVM_DIR="$HOME/.nvm"
   if [ -s "$NVM_DIR/nvm.sh" ]; then
     \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    export NVM_DIR="$HOME/.nvm"
   else
     echo -e "${RED}!!!nvm not installed!!!${NOCOLOR}"
   fi
