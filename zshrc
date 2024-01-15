@@ -32,6 +32,3 @@ for i in $HOME/dotfiles/[0-9]*.sh; do
 		source "$i"
 	fi
 done; unset i
-
-#zprof
-source /Users/orans/.config/broot/launcher/bash/br
