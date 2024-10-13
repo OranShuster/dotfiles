@@ -14,3 +14,7 @@ for i in $HOME/dotfiles/[0-9]*.sh; do
 done
 unset i
 echo "Done loading dotfiles..."
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
