@@ -16,7 +16,7 @@
 [pull]
         ff = only
 
-[includeIf "gitdir:~/Oran/"]
-	path = ~/Oran/.gitconfig
+[includeIf "gitdir:$HOME/Oran/"]
+	path = $HOME/Oran/.gitconfig
 [includeIf "gitdir:homebrew-cask/"]
-        path = ~/Oran/.gitconfig
+        path = $HOME/Oran/.gitconfig

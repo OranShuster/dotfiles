@@ -1,5 +1,5 @@
-if [ -f ~/.fzf.zsh ]; then
-  source ~/.fzf.zsh
+if [ -f $HOME/.fzf.zsh ]; then
+  source $HOME/.fzf.zsh
 else
   echo -e "${RED}!!!fzf not installed!!!${NOCOLOR}"
 fi
