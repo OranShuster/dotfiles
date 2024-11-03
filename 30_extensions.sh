@@ -24,7 +24,9 @@ fi
 
 if [ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then 
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
-  . ~/.asdf/plugins/java/set-java-home.zsh
+  if asdf list java | grep -qv "No versions installed"; then
+    . $HOME/.asdf/plugins/java/set-java-home.zsh
+  fi
 else
   echo -e "${RED}!!!asdf not installed!!!${NOCOLOR}"
 fi
