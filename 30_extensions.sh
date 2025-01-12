@@ -4,12 +4,6 @@ else
   echo -e "${RED}!!!fzf not installed!!!${NOCOLOR}"
 fi
 
-if command -v thefuck 1>/dev/null 2>&1; then
-  eval $(thefuck --alias)
-else
-  echo -e "${RED}!!!thefuck not installed!!!${NOCOLOR}"
-fi
-
 if [ -n "${DOTFILES_ENABLE_PYTHON}" ]; then
   if command -v pyenv 1>/dev/null 2>&1; then
     export PYENV_ROOT="$HOME/.pyenv"
@@ -24,7 +18,7 @@ fi
 
 if [ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]; then 
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
-  if asdf list java | grep -qv "No versions installed"; then
+  if asdf list java 2>/dev/null | grep -qv "No versions installed"; then
     . $HOME/.asdf/plugins/java/set-java-home.zsh
   fi
 else

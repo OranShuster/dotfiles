@@ -12,5 +12,4 @@ gh
 jq
 pyenv
 subversion
-thefuck
 zoxide
