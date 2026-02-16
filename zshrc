@@ -1,5 +1,10 @@
 #!/bin/zsh
 #set -x
+# zmodload zsh/zprof # Uncomment to benchmark
+
+DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_COMPFIX="true"
 
 for i in $HOME/dotfiles/[0-9]*.sh; do
         if [[ $__shell_bench -eq 1 ]]; then
@@ -13,8 +18,11 @@ for i in $HOME/dotfiles/[0-9]*.sh; do
         fi
 done
 unset i
-echo "Done loading dotfiles..."
+# echo "Done loading dotfiles..."
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# zprof # Uncomment to benchmark
+export PATH=/Users/orans/.local/bin:${PATH}
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/orans/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

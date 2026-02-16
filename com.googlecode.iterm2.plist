@@ -2,10 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AIFeatureFunctionCalling</key>
+	<true/>
+	<key>AIFeatureHostedCodeInterpeter</key>
+	<false/>
+	<key>AIFeatureHostedFileSearch</key>
+	<false/>
+	<key>AIFeatureHostedWebSearch</key>
+	<false/>
+	<key>AIFeatureStreamingResponses</key>
+	<true/>
+	<key>AITermAPI</key>
+	<integer>3</integer>
+	<key>AIVectorStore</key>
+	<integer>0</integer>
+	<key>AIVendor</key>
+	<integer>1</integer>
+	<key>AiMaxTokens</key>
+	<integer>1048576</integer>
+	<key>AiModel</key>
+	<string>gemini-2.5-flash</string>
+	<key>AiResponseMaxTokens</key>
+	<integer>65536</integer>
+	<key>AitermURL</key>
+	<string>https://generativelanguage.googleapis.com/v1beta/models/{{MODEL}}</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>DD6AC35F-0DF5-4069-A5DC-0F35BED16C02</string>
+	<key>Default Browser Profile Guid</key>
+	<string>4D485AA8-B8FB-4BAE-B460-67EC8EE25E23</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTab</key>
@@ -16,6 +42,8 @@
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
+			<true/>
+			<key>ASCII Ligatures</key>
 			<true/>
 			<key>Ambiguous Double Width</key>
 			<false/>

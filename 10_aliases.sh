@@ -3,7 +3,7 @@ alias gp='gpv'
 alias gpr='git pull --rebase=merges origin develop'
 alias gs='gst'
 alias glg="git log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gslack="git --no-pager log --pretty=format:'> %s%Creset' --abbrev-commit -n 15 | sed 's/\[src\]/*\[src\]*/g' | sed 's/\[fix\]/*\[fix\]*/g' | sed '/[vV]ersion/q'"
+# alias gslack="git --no-pager log --pretty=format:'> %s%Creset' --abbrev-commit -n 15 | sed 's/\[src\]/*\[src\]*/g' | sed 's/\[fix\]/*\[fix\]*/g' | sed '/[vV]ersion/q'"
 alias kns="kubectl config set-context --current --namespace"
 
 alias ls='eza'

@@ -1,5 +1,8 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/prometheus.rules.test.json": "untitled:/Users/orans/asl.test.yaml"
-    }
+    },
+    "cSpell.words": [
+        "ZINIT"
+    ]
 }
