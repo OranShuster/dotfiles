@@ -1,9 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-
+command_timeout = 5000
 format = """
 [](red)\
 $os\
-$username\
 [](bg:peach fg:red)\
 $directory\
 [](bg:yellow fg:peach)\
@@ -19,11 +18,7 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:green bg:sapphire)\
-$conda\
-[](fg:sapphire bg:lavender)\
-$time\
-[ ](fg:lavender)\
+[ ](fg:green)\
 $cmd_duration\
 $line_break\
 $character"""

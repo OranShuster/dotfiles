@@ -82,3 +82,21 @@ function piall(){
     done
     set +e
 }
+
+function openswarm() {
+  case "$1" in
+    start)
+      cd $HOME/devel/OpenSwarm && nohup npm start > ~/.openswarm/log 2>&1 &
+      echo "✅ Started (PID: $!)"
+      ;;
+    stop)
+      pkill -f "openswarm" && echo "✅ Stopped"
+      ;;
+    status)
+      pgrep -f "openswarm" && echo "✅ Running" || echo "❌ Stopped"
+      ;;
+    chat)
+      cd /path/to/OpenSwarm && node --import=tsx src/cli.ts chat "${@:2}"
+      ;;
+  esac
+}

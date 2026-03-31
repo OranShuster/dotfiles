@@ -29,6 +29,7 @@ fi
 # fnm - just add to PATH (astra uses `fnm exec` directly, no shell hooks needed)
 if [[ -d "/opt/homebrew/opt/fnm/bin" ]]; then
   export PATH="/opt/homebrew/opt/fnm/bin:$PATH"
+  eval "$(fnm env)"
 fi
 
 # mise - shims mode only needs PATH, no eval needed
@@ -47,6 +48,7 @@ fi
 
 if [[ "${DOTFILES_ENABLE_GO}" = "true" ]]; then
   export PATH="$HOME/go/bin:$PATH"
+  export GOTOOLCHAIN=local
 fi
 
 # Terraform completions moved to 40_completions.sh (needs compinit first)
