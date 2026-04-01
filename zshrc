@@ -21,13 +21,10 @@ unset i
 # echo "Done loading dotfiles..."
 
 # zprof # Uncomment to benchmark
-export PATH=/Users/orans/.local/bin:${PATH}
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/orans/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # >>> claude-profile completions >>>
 fpath=(~/.zfunc $fpath)
 autoload -Uz compinit && compinit
 # <<< claude-profile completions <<<
+
+source "$HOME/.bazelenv"

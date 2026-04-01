@@ -17,38 +17,26 @@ zsh-cache-clear() {
 }
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d "$PYENV_ROOT/bin" ]]; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  _cached_eval "pyenv" "pyenv init - zsh"
-fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# if [[ -d "$PYENV_ROOT/bin" ]]; then
+#   export PATH="$PYENV_ROOT/bin:$PATH"
+#   _cached_eval "pyenv" "pyenv init - zsh"
+# fi
 
 # fzf
 [[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
 
-# fnm - just add to PATH (astra uses `fnm exec` directly, no shell hooks needed)
-if [[ -d "/opt/homebrew/opt/fnm/bin" ]]; then
-  export PATH="/opt/homebrew/opt/fnm/bin:$PATH"
-  eval "$(fnm env)"
-fi
-
 # mise - shims mode only needs PATH, no eval needed
 # Note: run `mise settings set python.compile true` once manually if needed
-if [[ -f "$HOME/.local/bin/mise" ]]; then
+if [[ -f "/opt/homebrew/bin/mise" ]]; then
   export PATH="$HOME/.local/share/mise/shims:$PATH"
+else
+  echo $fg[red] "Mise is not installed in /opt/homebrew/bin/mise"
 fi
 
 # zoxide
 if (( $+commands[zoxide] )); then
   _cached_eval "zoxide" "zoxide init zsh"
-fi
-
-if [[ "${DOTFILES_ENABLE_JS}" = "true" ]]; then
-fi
-
-if [[ "${DOTFILES_ENABLE_GO}" = "true" ]]; then
-  export PATH="$HOME/go/bin:$PATH"
-  export GOTOOLCHAIN=local
 fi
 
 # Terraform completions moved to 40_completions.sh (needs compinit first)
