@@ -84,6 +84,8 @@
       }
     }
   },
+  "effortLevel": "high",
   "autoUpdatesChannel": "stable",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "model": "opus[1m]"
 }

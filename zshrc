@@ -1,6 +1,6 @@
 #!/bin/zsh
 #set -x
-# zmodload zsh/zprof # Uncomment to benchmark
+#zmodload zsh/zprof # Uncomment to benchmark
 
 DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
@@ -19,4 +19,4 @@ for i in $HOME/dotfiles/[0-9]*.sh; do
 done
 unset i
 # echo "Done loading dotfiles..."
-# zprof # Uncomment to benchmark
+#zprof # Uncomment to benchmark

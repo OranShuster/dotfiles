@@ -2,6 +2,7 @@
 #     source <(kubectl completion zsh)
 # fi
 
+fpath=(~/.zfunc $fpath)
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
     compinit
