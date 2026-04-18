@@ -19,17 +19,4 @@ for i in $HOME/dotfiles/[0-9]*.sh; do
 done
 unset i
 # echo "Done loading dotfiles..."
-
 # zprof # Uncomment to benchmark
-
-# >>> claude-profile completions >>>
-fpath=(~/.zfunc $fpath)
-autoload -Uz compinit && compinit
-# <<< claude-profile completions <<<
-
-source "$HOME/.bazelenv"
-eval "$(mise activate zsh)"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/orans/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
