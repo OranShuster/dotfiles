@@ -1,0 +1,1 @@
+stow -t $HOME claude kitty starship
