@@ -28,3 +28,8 @@ autoload -Uz compinit && compinit
 # <<< claude-profile completions <<<
 
 source "$HOME/.bazelenv"
+eval "$(mise activate zsh)"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/orans/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

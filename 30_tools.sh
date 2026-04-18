@@ -24,7 +24,11 @@ zsh-cache-clear() {
 # fi
 
 # fzf
-[[ -f "$HOME/.fzf.zsh" ]] && source "$HOME/.fzf.zsh"
+if [[ -f "/opt/homebrew/bin/fzf" ]]; then
+  source <(fzf --zsh)
+else
+  echo $fg[red] "FZF is not installed in $HOME/.fzf.zsh"
+fi
 
 # mise - shims mode only needs PATH, no eval needed
 # Note: run `mise settings set python.compile true` once manually if needed
