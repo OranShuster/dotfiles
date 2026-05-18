@@ -3,20 +3,19 @@ export DOTFILES_ENABLE_PYTHON=true
 export DOTFILES_ENABLE_JS=true
 export DOTFILES_ENABLE_TF=true
 
-setopt hist_ignore_all_dups
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTSIZE=100000
+SAVEHIST=100000
+
 setopt APPEND_HISTORY
-export HISTSIZE=10000000
-export SAVEHIST=$HISTSIZE
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
 
-export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
-else
-  export EDITOR='nano'
-fi
-
+setopt AUTOCD
+setopt NOBEEP
+setopt NUMERIC_GLOB_SORT  # sort file10 after file9, not after file1
 
 RED="\033[1;31m"
-

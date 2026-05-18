@@ -1,0 +1,6 @@
+1. You have access to the following locally installed CLI applications
+'gh' - github CLI
+'aws' - AWS CLI
+'acli' - Atlassian CLI (jira)
+
+2. Before looking for code in github online, check if the repo is already cloned in $HOME/devel/wix

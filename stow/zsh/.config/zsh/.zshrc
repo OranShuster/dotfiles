@@ -1,10 +1,14 @@
-#!/bin/zsh
+if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
+fi
+
 #set -x
 #zmodload zsh/zprof # Uncomment to benchmark
 
-DISABLE_AUTO_UPDATE="true"
-DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_COMPFIX="true"
+# DISABLE_AUTO_UPDATE="true"
+# DISABLE_MAGIC_FUNCTIONS="true"
+# DISABLE_COMPFIX="true"
 
 for i in $HOME/dotfiles/[0-9]*.sh; do
         if [[ $__shell_bench -eq 1 ]]; then

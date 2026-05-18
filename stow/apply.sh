@@ -1,1 +1,1 @@
-stow -t $HOME claude kitty starship
+stow -t $HOME claude ghostty git kitty starship zsh

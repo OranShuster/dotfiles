@@ -1,33 +1,26 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+ZPLUGINDIR="${ZDOTDIR:-$HOME/.config/zsh}/plugins"
 
-# Load zinit plugin manager (fast replacement for zplug)
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [[ ! -d "$ZINIT_HOME" ]]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-source "${ZINIT_HOME}/zinit.zsh"
+_zplugin_load() {
+  local plugin_path="${ZPLUGINDIR}/${2}"
+  if [[ ! -d "$plugin_path" ]]; then
+    mkdir -p "$ZPLUGINDIR"
+    echo "Installing ${2}..."
+    git clone --depth=1 "https://github.com/${1}/${2}" "$plugin_path" \
+      || { echo "ERROR: failed to install ${2}" >&2; return 1; }
+  fi
+  source "${plugin_path}/${2}.plugin.zsh"
+}
 
-# Theme - load synchronously (required for instant prompt)
-zinit ice depth=1
-eval "$(starship init zsh)"
-# zinit light romkatv/powerlevel10k
+zplugin-update() {
+  local dir
+  for dir in "${ZPLUGINDIR}"/*/; do
+    echo "Updating ${dir:t}..."
+    git -C "$dir" pull --ff-only
+  done
+}
 
-# Oh-My-Zsh plugins - load async via turbo mode (after prompt appears)
-# Removed: brew (already setup in 01_env.sh, plugin triggers slow brew commands)
-# Removed: colorize (redundant with bat), command-not-found, github
-# zinit wait lucid for \
-#   OMZL::git.zsh \
-#   OMZP::git \
-#   OMZP::python \
-#   OMZP::terraform
-
-# External plugins - load async
-zinit wait lucid for \
-  MichaelAquilina/zsh-you-should-use \
-  zsh-users/zsh-autosuggestions
+_zplugin_load zsh-users zsh-autosuggestions
+_zplugin_load zsh-users zsh-history-substring-search
+_zplugin_load MichaelAquilina zsh-you-should-use
+_zplugin_load jeffreytse zsh-vi-mode
+_zplugin_load zdharma-continuum fast-syntax-highlighting
