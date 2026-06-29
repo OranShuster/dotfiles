@@ -1,0 +1,80 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Read(*)",
+      "Bash(go build:*)",
+      "Bash(go test:*)",
+      "Bash(go mod:*)",
+      "Bash(go get:*)",
+      "Bash(npm ls:*)",
+      "Bash(yarn:*)",
+      "Bash(~/.dev3.0/bin/dev3 *)",
+      "Bash(aws ec2 describe:*)",
+      "Bash(aws ec2 get:*)",
+      "Bash(aws lambda get:*)",
+      "Bash(aws lambda describe:*)",
+      "Bash(aws lambda list:*)",
+      "Bash(aws cloudwatch get:*)",
+      "mcp__aws-mcp-us-east-1__aws___suggest_aws_commands",
+      "mcp__aws-mcp-us-west-2__aws___suggest_aws_commands"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'cols=$(stty size </dev/tty 2>/dev/null | awk '\"'\"'{print $2}'\"'\"'); export COLUMNS=$(( ${cols:-120} > 4 ? ${cols:-120} - 4 : 1 )); plugin_dir=$(ls -d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/*/claude-hud/*/ 2>/dev/null | awk -F/ '\"'\"'{ print $(NF-1) \"\\t\" $0 }'\"'\"' | grep -E '\"'\"'^[0-9]+\\.[0-9]+\\.[0-9]+\\t'\"'\"' | sort -t. -k1,1n -k2,2n -k3,3n -k4,4n | tail -1 | cut -f2-); exec \"/Users/orans/.local/share/fnm/node-versions/v24.15.0/installation/bin/node\" \"${plugin_dir}dist/index.js\"'"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "prompt-caching@ercan-ermis": true,
+    "superpowers@claude-plugins-official": true,
+    "claude-hud@claude-hud": true,
+    "context7@claude-plugins-official": true,
+    "fullstack-dev-skills@fullstack-dev-skills": true,
+    "ponytail@ponytail": true,
+    "claude-md-management@claude-plugins-official": true,
+    "remember@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "ercan-ermis": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/flightlesstux/prompt-caching.git"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
+    "fullstack-dev-skills": {
+      "source": {
+        "source": "github",
+        "repo": "jeffallan/claude-skills"
+      }
+    },
+    "agent-toolkit-for-aws": {
+      "source": {
+        "source": "github",
+        "repo": "aws/agent-toolkit-for-aws"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "autoUpdatesChannel": "stable",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark"
+}

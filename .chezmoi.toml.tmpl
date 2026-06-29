@@ -1,0 +1,13 @@
+{{- $brewPrefix := "" -}}
+{{- $binPrefix := "" -}}
+{{- if eq .chezmoi.arch "arm64" -}}
+{{-   $brewPrefix = "/opt/homebrew" -}}
+{{-   $binPrefix = "/opt/homebrew/bin" -}}
+{{- else -}}
+{{-   $brewPrefix = "/usr/local" -}}
+{{-   $binPrefix = "/usr/local/bin" -}}
+{{- end -}}
+sourceDir =  {{ .chezmoi.config.sourceDir | quote }}
+[data]
+    binPrefix = {{ $binPrefix | quote }}
+    brewPrefix = {{ $brewPrefix | quote }}

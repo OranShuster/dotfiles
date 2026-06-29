@@ -1,0 +1,9 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-n": "workspace::NewFile",
+      "cmd-p": "file_finder::Toggle",
+    },
+  },
+]

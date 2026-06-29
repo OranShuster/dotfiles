@@ -1,0 +1,21 @@
+[user]
+	name = Oran Shuster
+	email = orans@wix.com
+[init]
+	defaultBranch = master
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[pull]
+	ff = only
+[credential "https://github.com"]
+	helper =
+	helper = !{{ .binPrefix }}/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !{{ .binPrefix }}/gh auth git-credential
+[url "https://github.com/"]
+	insteadOf = ssh://git@github.com/
+	insteadOf = git@github.com:

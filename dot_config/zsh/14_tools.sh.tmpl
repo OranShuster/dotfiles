@@ -1,0 +1,38 @@
+# fzf
+if (( $+commands[fzf] )); then
+  source <(fzf --zsh)
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'  # strip-cwd-prefix removes the leading ./ from results
+  export FZF_DEFAULT_OPTS='
+    --height=60%
+    --layout=reverse
+    --border=rounded
+    --prompt="  "
+    --pointer="  "
+    --preview-window=right:65%:wrap:border-left
+  '
+  export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+else
+  echo $fg[red] "FZF is not installed"
+fi
+
+# mise - shims mode only needs PATH, no eval needed
+# Note: run `mise settings set python.compile true` once manually if needed
+if (( $+commands[mise] )); then
+  # export PATH="$HOME/.local/share/mise/shims:$PATH"
+  eval "$(mise activate zsh)"
+else
+  echo $fg[red] "Mise is not installed"
+fi
+
+# zoxide
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
+# fnm
+if (( $+commands[fnm] )); then
+  eval "$(fnm env --shell zsh)"
+fi
+
+#python uv
+. "$HOME/.local/share/../bin/env"
