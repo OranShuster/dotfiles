@@ -1,3 +1,5 @@
-#Reserved for work
-0*.sh
+# Dont commit work or secrets
+*wix*
+*work*
+*secrets*
 .DS_Store

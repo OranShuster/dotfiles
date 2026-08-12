@@ -1,0 +1,29 @@
+#!/bin/bash
+# chezmoi modify_ script: current ~/.claude.json arrives on stdin.
+# Inject the managed mcpServers block, leave all other (state) keys untouched.
+set -euo pipefail
+
+read -r -d '' MCP <<'JSON' || true
+{
+  "aws-mcp-us-east-1": {
+    "command": "uvx",
+    "args": ["mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp", "--read-only", "--metadata", "AWS_REGION=us-east-1"],
+    "env": {"AWS_PROFILE": "rw"}
+  },
+  "aws-mcp-us-west-2": {
+    "command": "uvx",
+    "args": ["mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp", "--read-only", "--metadata", "AWS_REGION=us-west-2"],
+    "env": {"AWS_PROFILE": "rw"}
+  },
+  "context7": {"type": "http", "url": "https://mcp.context7.com/mcp"},
+  "semble": {"type": "stdio", "command": "uvx", "args": ["--from", "semble[mcp]", "semble"], "env": {}},
+  "mcp-s": {"type": "http", "url": "https://mcp-s.wewix.net/mcp"},
+  "grafana-mcp": {"type": "http", "url": "https://mcp-s.wewix.net/mcp?mcp=grafana-mcp"},
+  "cab-manager": {"type": "http", "url": "https://mcp-s.wewix.net/mcp?mcp=cab-manager"},
+  "fire-console": {"type": "http", "url": "https://mcp-s.wewix.net/mcp?mcp=fire-console"}
+}
+JSON
+
+input=$(cat)
+# ponytail: $(...) strips jq's trailing newline so output matches ~/.claude.json (no EOF newline)
+printf '%s' "$(echo "${input:-\{\}}" | jq --argjson mcp "$MCP" '.mcpServers = $mcp')"

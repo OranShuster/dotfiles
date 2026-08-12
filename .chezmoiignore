@@ -2,3 +2,8 @@ README.md
 Brewfile
 Brewfile.lock.json
 0*.sh
+{{ if regexMatch "^(?i)IL-" .chezmoi.hostname }}
+.config/zsh/13_ai_home.sh
+{{ else }}
+.config/zsh/13_ai_wix.sh
+{{ end }}

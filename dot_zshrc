@@ -19,3 +19,10 @@ done
 unset i
 # echo "Done loading dotfiles..."
 #zprof # Uncomment to benchmark
+
+# dev3.0 CLI
+export PATH="$HOME/.dev3.0/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/orans/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

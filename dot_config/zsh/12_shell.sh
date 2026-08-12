@@ -22,7 +22,6 @@ zplugin-update() {
 _zplugin_load zsh-users zsh-autosuggestions
 _zplugin_load zsh-users zsh-history-substring-search
 _zplugin_load MichaelAquilina zsh-you-should-use
-_zplugin_load zdharma-continuum fast-syntax-highlighting
 
 #Styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
