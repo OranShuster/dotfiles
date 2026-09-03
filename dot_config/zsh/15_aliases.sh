@@ -5,15 +5,20 @@ alias glg="git log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bo
 
 if (( $+commands[eza] ));
 then
-    alias ls='eza --icons'
-    alias ll='eza -lh --icons --git'
-    alias la='eza -lah --icons --git'
-    alias tree='eza --tree --icons'
+    alias ls='eza --icons=auto'
+    alias ll='eza -lh --icons=auto --git'
+    alias la='eza -lah --icons=auto --git'
+    alias tree='eza --tree --icons=auto'
     # Reuse ls completions for eza (avoids defining a separate completion function)
     compdef eza=ls
+else
+    alias ll='ls -la'
+    alias la='ls -lah'
+    # ponytail: find|sed tree for a bare system with neither eza nor tree(1).
+    # Prints every level, no depth limit -- install eza or tree if that matters.
+    alias tree='find . -print | sed -e "s;[^/]*/;|____;g;s;____|; |;g"'
 fi
 
-alias ll='ls -la'
 alias mkdir='mkdir -pv'
 
 alias cat='bat'
