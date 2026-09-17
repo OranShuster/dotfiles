@@ -68,6 +68,10 @@ read -r -d '' MCP <<'JSON' || true
   "excalidraw": {
     "type": "http",
     "url": "https://mcp-s.wewix.net/mcp?mcp=excalidraw\u001bE"
+  },
+  "github": {
+    "type": "http",
+    "url": "https://mcp-s.wewix.net/mcp?mcp=github"
   }
 }
 JSON

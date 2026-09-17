@@ -37,6 +37,8 @@ Rule 7: Use the body to explain what and why vs. how. Assume the code explains t
 
 - If the prompt indicates that a bug is being fixed, don't write the fix right away. First write the test. Observe it failing. Then write the fix. And observe the test passing.        
 
+- When creating unit tests, aim for fewer but distinct tests. If several tests exercise the same logic with different input/output, merge them into a single permutated (parameterized) test.
+
 - Unless specifically requested to use an MCP, try to use locally installed CLI tools
 'gh' - github CLI
 'aws' - AWS CLI

@@ -1,4 +1,7 @@
 {
+  "env": {
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8"
+  },
   "permissions": {
     "allow": [
       "Bash(ls:*)",
@@ -212,12 +215,14 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
   "autoMode": {
     "allow": [
       "$defaults",
       "Bash(gh pr view:*) and Bash(gh pr list:*) in wix-private/dev-portal — read-only PR inspection is routine here",
       "Bash(acli:*) read-only JIRA queries (issue view/search) against jira.wixpress.com",
-      "Bash(yarn lint), Bash(yarn test), Bash(yarn build), Bash(yarn format:check) inside /Users/orans/devel/wix/dev-portal"
+      "Bash(yarn lint), Bash(yarn test), Bash(yarn build), Bash(yarn format:check) inside /Users/orans/devel/wix/dev-portal",
+      "dev3 task lifecycle: the `dev3` CLI is the dev3 app's own control plane, and `dev3 task move` — `--status completed` and `--status cancelled` included — is a request to the running app, not local destruction. The app answers it with its own approval dialog that the user clicks, and the worktree it then removes is disposable task scratch space whose work is preserved elsewhere before the move is ever requested. Applies to `dev3` however it is spelled (`~/.dev3.0/bin/dev3`, an absolute `dev3.exe`), and only to `dev3` subcommands — nothing else on the command line is cleared by this entry."
     ],
     "soft_deny": [
       "$defaults",
@@ -252,8 +257,5 @@
       "**Routine under this repo's prefix**: yarn/npm/npx workspace scripts (build, dev, lint, test, format, clean) run inside /Users/orans/devel/wix/dev-portal"
     ]
   },
-  "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-8",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-5"
-  }
+  "agentPushNotifEnabled": true
 }
