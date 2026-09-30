@@ -1,0 +1,92 @@
+# Portable preferences; Codex and dev3 retain their local state.
+default_permissions = "workspace"
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+model = "gpt-6.1-sol"
+
+[permissions.workspace.filesystem]
+":minimal" = "read"
+{{ .brewPrefix | quote }} = "read"
+
+[permissions.workspace.filesystem.":workspace_roots"]
+"." = "write"
+
+[permissions.workspace.network]
+enabled = true
+
+[features]
+hooks = true
+
+[tui]
+whimsy = false
+
+[desktop]
+followUpQueueMode = "queue"
+
+[marketplaces.claude-hud]
+source_type = "git"
+source = "https://github.com/jarrodwatts/claude-hud.git"
+
+[marketplaces.fast-jev-compaction]
+source_type = "git"
+source = "https://github.com/tamaratran/fast-jev-compaction.git"
+
+[marketplaces.mattpocock]
+source_type = "git"
+source = "https://github.com/mattpocock/skills.git"
+
+[marketplaces.ponytail]
+source_type = "git"
+source = "https://github.com/DietrichGebert/ponytail.git"
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."claude-hud@claude-hud"]
+enabled = true
+
+[plugins."fast-jev-compaction@fast-jev-compaction"]
+enabled = true
+
+[plugins."mattpocock-skills@mattpocock"]
+enabled = true
+
+[mcp_servers.aws-mcp-us-east-1]
+command = "uvx"
+args = [
+    "mcp-proxy-for-aws@latest",
+    "https://aws-mcp.us-east-1.api.aws/mcp",
+    "--read-only",
+    "--metadata",
+    "AWS_REGION=us-east-1",
+]
+
+[mcp_servers.aws-mcp-us-east-1.env]
+AWS_PROFILE = "rw"
+
+[mcp_servers.aws-mcp-us-west-2]
+command = "uvx"
+args = [
+    "mcp-proxy-for-aws@latest",
+    "https://aws-mcp.us-east-1.api.aws/mcp",
+    "--read-only",
+    "--metadata",
+    "AWS_REGION=us-west-2",
+]
+
+[mcp_servers.aws-mcp-us-west-2.env]
+AWS_PROFILE = "rw"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.semble]
+command = "uvx"
+args = ["--from", "semble[mcp]", "semble"]
+
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+ANTHROPIC_DEFAULT_OPUS_MODEL = "claude-opus-4-8"
+ANTHROPIC_DEFAULT_SONNET_MODEL = "claude-sonnet-5"

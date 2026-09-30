@@ -1,0 +1,10 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Merge preferences while preserving local state and unchanged formatting. */ -}}
+{{- $current := fromToml .chezmoi.stdin | default dict -}}
+{{- $managed := includeTemplate "codex.toml.tmpl" . | fromToml -}}
+{{- $target := mergeOverwrite (deepCopy $current) $managed -}}
+{{- if eq (toJson $current) (toJson $target) -}}
+{{ .chezmoi.stdin }}
+{{- else -}}
+{{ $target | toToml }}
+{{- end -}}
