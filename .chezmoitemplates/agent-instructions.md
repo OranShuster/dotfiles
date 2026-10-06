@@ -46,7 +46,7 @@ Rule 7: Use the body to explain what and why vs. how. Assume the code explains t
 
 - For wix related code, before looking for code in github, check if the repo is already cloned in $HOME/devel/wix
 
-- Pre checks
+- Pre checks for tasks that involve writing code
   * Verify you are in in a git repository. If not, notify and stop
   * Verify that you are in a branch that is not the default. If not, notify and stop
   * Verify that if the branch has a remote upstream, it's of the same name
